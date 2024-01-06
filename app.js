@@ -7,13 +7,13 @@ const clsDB = require("./clsDB");
 const clsQuiz = require("./clsQuiz");
 const clsUser = require("./clsUser");
 
-
+//To make it live
+setInterval(async () => {log("i am here after 5m")},1000*60*5)
 
 const OnStartMessage = async (ctx) => {
   await new clsQuiz(ctx).MainScreen();
   await new clsDB(ctx.message.from.id).AddUser();
   await new clsUser(ctx).TransferringUserMessage();
-
 }
 bot.start(async (ctx) => {
   await Promise.all([
