@@ -7,21 +7,6 @@ const clsDB = require("./clsDB");
 const clsQuiz = require("./clsQuiz");
 const clsUser = require("./clsUser");
 
-//To make it live
-cron.schedule('*/2 * * * *', async () => {
-  try {
-    // Make an HTTP request to the website
-    const response = await axios.get('https://katma.onrender.com');
-
-    // Log the response or handle it as needed
-    console.log('Cron job executed successfully:', response.status, response.statusText);
-  } catch (error) {
-    // Handle any errors that occurred during the HTTP request
-    console.error('Error during cron job:', error.message);
-  }
-});
-
-
 
 const OnStartMessage = async (ctx) => {
   await new clsQuiz(ctx).MainScreen();
